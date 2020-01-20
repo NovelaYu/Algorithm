@@ -1,5 +1,8 @@
 package com.damll.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public enum  Roman {
     I(1,"I"),
     V(5,"V"),
@@ -47,6 +50,5 @@ public enum  Roman {
              return 0;
 
         }
-
 
 }

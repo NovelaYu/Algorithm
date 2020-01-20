@@ -1,9 +1,9 @@
 package com.dmall.main;
 
+import com.damll.domain.Roman;
+
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Stack;
+import java.util.*;
 
 public class IsValid {
     public boolean isValid(String s) {
@@ -94,17 +94,64 @@ public class IsValid {
        return stack.isEmpty();
     }
 
+    public String test() {
+        List list = null;
+        String s2 = "开始";
+        try {
+            list = new ArrayList();
+            /**这个不算数组越界，不会抛异常**/
+            for (int i =0; i<list.size();i++) {
+                if (("0000").equals(list.toString())) {
+                    System.out.println(true);
+                }
+            }
+            Integer i = Integer.valueOf(s2);
+        } catch (Exception e) {
+            s2="捕获异常";
+            //e.printStackTrace();
+            //捕获异常之后，会输出
+            System.out.println(s2);
+            return s2;
 
+        }
+        System.out.println("不会输出异常");
+        System.out.println(s2);
+        return s2;
+    }
+
+    public int getInt(int key) {
+        Map<Integer,Integer> map = new HashMap<>();
+        map.put(1,1);
+        return map.get(key);
+    }
 
     public static void main(String[] args) {
         IsValid isValid = new IsValid();
-       // System.out.println(isValid.isValid1("()[]{}"));
-        //System.out.println(isValid.isValid1("{()[[]}"));
-       // System.out.println(isValid.isValid1("(])"));
-        double a = 1.00000;
-        BigDecimal bigA = new BigDecimal("1.00000");
-        BigDecimal b = new BigDecimal("1.0");
-        System.out.println(bigA.compareTo(b));
+      /*  Boolean have =false;
+        Boolean is = false;
+        boolean fresh = true;
+        if(have && !is) {
+            System.out.println("生产订单非平台自运营");
+        }else if(is) {
+            System.out.println("生产订单平台自运营");
+        }else{
+            if (fresh) {
+                System.out.println("尝鲜");
+            }else{
+                System.out.println("全不是");
+            }
+
+        }*/
+
+        try {
+            System.out.println(isValid.getInt(2));
+        } catch (Exception e) {
+            //e.printStackTrace();
+            System.out.println("捕获异常");
+        }
+
     }
+
+
 
 }
