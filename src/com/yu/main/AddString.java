@@ -1,6 +1,6 @@
-package com.dmall.main;
+package com.yu.main;
 
-import com.damll.domain.MatchNumber;
+import com.yu.domain.MatchNumber;
 
 public class AddString {
     public String addString(String num1, String num2) {

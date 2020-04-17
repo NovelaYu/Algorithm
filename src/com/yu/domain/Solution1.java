@@ -1,4 +1,4 @@
-package com.damll.domain;
+package com.yu.domain;
 
 //类的可见性至少是包可见
 

@@ -1,4 +1,4 @@
-package com.damll.domain;
+package com.yu.domain;
 
 /**
  *

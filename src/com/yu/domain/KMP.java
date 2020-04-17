@@ -1,8 +1,9 @@
-package com.damll.domain;
+package com.yu.domain;
 
 public class KMP {
     /**
-     * 寻找公共字符串的长度
+     * 寻找待比较的公共字符串的长度
+     * 将相同
      * */
     public int[] get_prefix(String T) {
         int[] prefix = new int[T.length()];
@@ -20,10 +21,13 @@ public class KMP {
                 len++;
                 prefix[k]=len;
                 k++;
+                System.out.println(prefix[k]);
             }else {
-                //这是一个递归，回退到上一个公共前缀的大小又开始循环比较
+                /**这是一个递归，回退到上一个公共前缀的大小又开始循环比较
+                 * 因为前面已经比较了是相等的*/
                 len = prefix[k -1];
                 k++;
+                System.out.println(prefix[k]);
             }
 
         }
@@ -33,7 +37,8 @@ public class KMP {
 
     /**
      * 对数组整体右移动一位，为甚要右移动？
-     * 因为字符串是从0开始的，要将对应的公共前缀回退到上一个公共前缀结束的位置
+     * 因为字符串是从0和1开始比较的，两个得出了一个值。所以第一个和第一个比默认为-1
+     * 开始的，要将对应的公共前缀回退到上一个公共前缀结束的位置
      * 依次移动位置
      * **/
     public int[] get_next(int[] prefix) {
@@ -86,9 +91,18 @@ public class KMP {
         for (int i =0;i<next.length;i++) {
             System.out.println(next[i]);
         }*/
-       String s ="abcaba";
+       /*String s ="abcaba";
        String t = "aba";
-        System.out.println(kmp.get_KMP(s,t));
+        System.out.println(kmp.get_KMP(s,t));*/
+       String st = "123456789";
+       //kmp.get_prefix(st);
+        String[] s = new String[1];
+        System.out.println(s[0]);
+
+        Class clazz = kmp.getClass();
+        System.out.println(clazz.getClassLoader());
+        System.out.println(Thread.currentThread().getContextClassLoader());
+        System.out.println(ClassLoader.getSystemClassLoader());
 
     }
 }

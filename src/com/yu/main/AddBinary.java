@@ -1,6 +1,6 @@
-package com.dmall.main;
+package com.yu.main;
 
-import com.damll.domain.MatchNumber;
+import com.yu.domain.MatchNumber;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

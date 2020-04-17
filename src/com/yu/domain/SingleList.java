@@ -1,4 +1,4 @@
-package com.damll.domain;
+package com.yu.domain;
 /**
  * 这就是一个节点，节点连接节点
  * 1、如何手写一个链表

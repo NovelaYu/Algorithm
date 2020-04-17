@@ -1,7 +1,5 @@
-package com.dmall.main;
+package com.yu.main;
 
-import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 public class ArrayPairSum {
