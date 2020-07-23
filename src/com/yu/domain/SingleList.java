@@ -1,4 +1,7 @@
 package com.yu.domain;
+
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Node;
+
 /**
  * 这就是一个节点，节点连接节点
  * 1、如何手写一个链表
@@ -20,10 +23,12 @@ public class SingleList<T> {
     public class Node<T> {
         T value;
         Node next;
+        Node last;
 
         public Node(T value) {
             this.value = value;
             next =null;
+            last = head;
         }
     }
 
@@ -164,17 +169,55 @@ public class SingleList<T> {
         return size;
     }
 
+
+    /**快慢指针，删除倒数第N个节点**/
+
+    public Node removeNthFromEnd(int n) {
+        if (head == null || head.next == null) {
+            return null;
+        }
+
+        Node dummyHead = new Node("虚拟节点");
+        //dummyHead.next = head;
+
+        Node slow = head;
+        Node fast = head;
+
+        /**fast节点先走，先走n+1步，
+         * 保证fast始终比low快n步，当fast到最后一步时，low正好到倒数第n步
+         *
+         *
+         * **/
+        for (int i = 0; i < n ; i++) {
+            fast = fast.next;
+        }
+
+        while (fast != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        dummyHead = slow;
+        /***删除操作**/
+        slow = slow.next;
+
+        return dummyHead;
+    }
+
     public static void main(String[] args) {
         SingleList singleList = new SingleList();
         singleList.addLastNode("第一个节点");
         singleList.addLastNode("第二个节点");
         singleList.addLastNode("第三个节点");
         singleList.addLastNode("第四个节点");
-        singleList.addNodeAtIndex("第一个位置后面插入一个节点",3);
-        int size = singleList.size();
+       // singleList.addNodeAtIndex("第一个位置后面插入一个节点",3);
+        singleList.addLastNode("第五个节点");
+
+       /* int size = singleList.size();
         for (int i =0;i<size;i++) {
             System.out.println(singleList.getNodeByIndex(i,singleList).value +"\n");
-        }
+        }*/
+        System.out.println(singleList.removeNthFromEnd(3).value);
     }
 
 }

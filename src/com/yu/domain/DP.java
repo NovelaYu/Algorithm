@@ -6,7 +6,7 @@ package com.yu.domain;
  * 分别使用递归和动态规划的方式完成(非递归)
  * Author yu.xiang
  * ***/
-public class DP {
+public class  DP {
 
     /**
      * 一个数组 1 2 4 1 7 8 3 求出不相邻两个数的最大值
