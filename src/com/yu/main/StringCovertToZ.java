@@ -34,6 +34,10 @@ public class StringCovertToZ {
               if (tmp == 0) {
                   j = tmp;
                   low++;
+                  /**每次单独赋值都需要判断数值是否越界**/
+                  if (i > s.length() -1) {
+                      break;
+                  }
                   characters[j][low] = s.charAt(i);
 
               }
@@ -60,7 +64,7 @@ public class StringCovertToZ {
 
     public static void main(String[] args) {
         StringCovertToZ s = new StringCovertToZ();
-        String s1 = "123456789";
-        System.out.println(s.convert(s1,2));
+        String s1 = "ABCD";
+        System.out.println(s.convert(s1,3));
     }
 }
