@@ -5,7 +5,7 @@ public class StringCovertToZ {
     /**
      * 时间复杂度并没有降低，有两个两层循环，
      * 先取出来放一个二维数组String[][],再循环遍历将String取出来
-     * 当 numRows =2 时，数组越界
+     *
      * **/
     public String convert(String s, int numRows) {
         if(s == null || s.length() == 0 || numRows < 2) {
@@ -17,37 +17,26 @@ public class StringCovertToZ {
          int low =0;
          for (int i=0,j =0;i<s.length();i++,j++) {
              if (j == numRows) {
-                 if (numRows !=2) {
-                     int tmp = numRows -2;
-                     low++;
-                     if (i > s.length()-1) {
+                 int tmp = numRows -2;
+                 for (;tmp>0;tmp--) {
+                     low ++;
+                     if (i > s.length() -1) {
                          break;
                      }
-                     /**行数为2的时候怎么办？！**/
                      characters[tmp][low] =s.charAt(i);
-                     tmp--;
-                     for (;tmp>0;tmp--) {
-                         low ++;
-                         j++;
-                         i++;
-                         if (i > s.length() -1) {
-                             break;
-                         }
-                         characters[tmp][low] =s.charAt(i);
+                     /**主要是二维数组循环，每次循环一次，i和j都会自增
+                      * 需要在赋值之后自增行数和列数
+                      * **/
+                     i++;
 
-                     }
+                 }
 
-                     /**行数为2的时候搞不定的**/
-                     if (tmp == 0 && numRows ==2) {
-                         j = -1;
-                         low++;
-                     }
-                 }
-                 if (numRows ==2) {
-                     low++;
-                     int index = numRows - 1;
-                     characters[index][low] = s.charAt(i);
-                 }
+              if (tmp == 0) {
+                  j = tmp;
+                  low++;
+                  characters[j][low] = s.charAt(i);
+
+              }
 
              }else {
                  characters[j][low] = s.charAt(i);
