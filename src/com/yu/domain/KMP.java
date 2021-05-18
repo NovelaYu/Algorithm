@@ -37,7 +37,7 @@ public class KMP {
 
     /**
      * 对数组整体右移动一位，为甚要右移动？
-     * 因为字符串是从0和1开始比较的，两个得出了一个值。所以第一个和第一个比默认为-1
+     * 因为如果字符匹配失位，指针需要回溯一位，将数组向后偏移一位，得到一个新的数组
      * 开始的，要将对应的公共前缀回退到上一个公共前缀结束的位置
      * 依次移动位置
      * **/
@@ -85,24 +85,24 @@ public class KMP {
 
 
     public static void main(String[] args) {
-        KMP kmp = new KMP();
-       /* int[] k = kmp.get_prefix("aaaa");
+       /* KMP kmp = new KMP();
+        int[] k = kmp.get_prefix("aaaa");
         int[] next = kmp.get_next(k);
         for (int i =0;i<next.length;i++) {
             System.out.println(next[i]);
-        }*/
-       /*String s ="abcaba";
+        }
+       String s ="abcaba";
        String t = "aba";
-        System.out.println(kmp.get_KMP(s,t));*/
-       String st = "123456789";
-       //kmp.get_prefix(st);
-        String[] s = new String[1];
-        System.out.println(s[0]);
+        System.out.println(kmp.get_KMP(s,t));
+        String st = "123456789";
+       kmp.get_prefix(st);*/
+        //String[] s = new String[1];
+        //System.out.println(s[0]);
 
-        Class clazz = kmp.getClass();
-        System.out.println(clazz.getClassLoader());
-        System.out.println(Thread.currentThread().getContextClassLoader());
-        System.out.println(ClassLoader.getSystemClassLoader());
+        //Class clazz = kmp.getClass();
+      //  System.out.println(clazz.getClassLoader());
+        //System.out.println(Thread.currentThread().getContextClassLoader());
+        //System.out.println(ClassLoader.getSystemClassLoader());
 
     }
 }
