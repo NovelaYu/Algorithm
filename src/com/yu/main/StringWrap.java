@@ -22,16 +22,18 @@ public class StringWrap {
         Scanner scanner = new Scanner(System.in);
         ArrayList<String> list = new ArrayList<>();
         ArrayList<String> list1 = new ArrayList<>();
-       // String str ;
+        // String str ;
         //1、hasNextLine 以回车键作为结束
         //2、nextLine 遇到空白，next()会自动去掉空白，不能得到带空白字符串的字符
         System.out.println("输入数据:");
-        while (scanner.hasNextLine()) {
+        list.add(scanner.nextLine());
+        // while true 很关键，因为你没有输入字符的时候，执行到这里就自动退出了，所以要一直循环，设置退出条件
+        while (true) {
             // 当遇到空时退出循环
-            if (scanner.nextLine().equals("end")) {
+            String str = scanner.nextLine();
+            if (str.equals("end")) {
                 break;
             }
-            String str = scanner.nextLine();
             list.add(str);
         }
         System.out.println("结束输出");
